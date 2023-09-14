@@ -12,3 +12,5 @@ Grazie per esseti interessato a questo argomento, in questa repository troverai 
 
 
 * **Editor Assembly**: [https://asm-editor.specy.app/](https://asm-editor.specy.app/)
+
+* **Altra documentazione**: [https://github.com/UnivaqStudentHub/LPS/wiki](https://github.com/UnivaqStudentHub/LPS/wiki)
