@@ -11,4 +11,4 @@ Grazie per esseti interessato a questo argomento, in questa repository troverai 
 * **Codice sorgente C**: [LINK](./C%20code/)
 
 
-* **Compilatore Assembly**: [https://asm-editor.specy.app/](https://asm-editor.specy.app/)
+* **Editor Assembly**: [https://asm-editor.specy.app/](https://asm-editor.specy.app/)
