@@ -1,0 +1,115 @@
+ORG $1000
+START:
+    
+    * d0 tipo di trap
+    * d1 input da tastiera / output a consolle 
+    * d2 primo numero
+    * d3  segno 
+    * d4 secondo numero
+
+    * prendo primo numero
+    move #4,d0  * set trap ==> numero in input da tastiera
+    trap #15
+    move.l d1,d2  * l'input va in d1, viene trasferito in d2
+
+    *prendo segno
+    move #5,d0  * set trap ==> String in input da tastiera
+    trap #15
+    move.l  d1,d3   * l'input va in d1, viene trasferito in d3
+    
+    *prendo secondo numero
+    move #4,d0  * set trap ==> numero in input da tastiera
+    trap #15
+    move.l d1,d4   * l'input va in d1, viene trasferito in d4
+
+
+
+    * inizio if 
+    cmp #'+', d3
+    beq addizione   *vai alla label "addizione"
+
+    cmp #'-',d3
+    beq sottrazione     *vai alla label "sottrazione"
+
+    cmp #'*',d3
+    beq moltiplicazione *vai alla label "moltiplicazione"
+
+    cmp #'/',d3
+    beq divisione   *vai alla label "divisione"
+
+    addizione:
+
+    add d2,d4   * d4 = d4 + d2
+
+    move.l d4,d1
+
+
+    bra fine_all
+
+    sottrazione:
+
+    sub d4,d2   * d2 = d2 - d4
+    move.l d2,d1
+
+    bra fine_all
+
+    
+    moltiplicazione:
+
+    muls d2,d4  * d4 = d4 * d2
+
+    move.l d4,d1
+
+    bra fine_all
+
+    divisione:
+
+    divs d4,d2  * d2 = d2/d4
+
+    bra fine_div
+
+
+    fine_all: 
+    move #3,d0  * set trap ==> output del numero messo in d1
+    trap #15
+
+    bra stop
+
+
+    fine_div:
+
+    move.w d4,d6
+
+
+    move #3,d0  * set trap ==> output del numero messo in d1
+    move.w d2,d1 * prendo solo la parte intera della divisione
+    trap #15
+
+    move #6,d0  * set trap ==> output della virgola messa in d1
+    move #',',d1
+    trap #15
+
+    move #3,d0  * set trap ==> output del numero messo in d1
+    swap d2
+    move.w d2,d7
+    muls #100,d7    * più è alta la moltiplicazione più ho precisione
+    divs d6,d7
+    move.w d7, d1
+
+    trap #15
+
+    stop:
+
+END: * Jump here to end the program
+
+
+* ---METADATA--- do not write below here
+* {
+*     "version": 1,
+*     "description": "Piccola calcolatrice dimostrativa",
+*     "name": "Calcolatrice",
+*     "language": "M68K",
+*     "createdAt": 1690197997613,
+*     "updatedAt": 1690210316018,
+*     "id": "DHCGsvM"
+* }
