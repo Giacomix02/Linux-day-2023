@@ -4,7 +4,7 @@
 
 Grazie per esseti interessato a questo argomento, in questa repository troverai sia la presentazione e sia il codice sorgente del progetto.
 
-* **Presentazione**: [LINK](/m68k.pptx)
+* **Presentazione**: [LINK](/m68k.pdf)
 
 * **Codice sorgente assembly**: [LINK](./Assembly/)
 
