@@ -2,7 +2,7 @@
 
 ![](./img/logo-lug.png)
 
-Grazie per esseti interessato a questo argomento, in questa repository troverai sia la presentazione e sia il codice sorgente del progetto.
+Grazie per esserti interessato a questo argomento, in questa repository troverai sia la presentazione e sia il codice sorgente del progetto.
 
 * **Presentazione**: [LINK](/m68k.pdf)
 
